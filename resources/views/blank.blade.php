@@ -31,9 +31,15 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
+            <br/>
+            {{-- <center>
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" width="75" height="95">
+            </center> --}}
+            <br/>
             <a class="sidebar-brand d-flex align-items-center justify-content-center">                
-                <div class="sidebar-brand-text mx-3">Website Perpustakaan</div>
+                <div class="sidebar-brand-text mx-3">Website Perpustakaan SMP Negeri 1 Mumbulsari</div>
             </a>
+            <br/>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->

@@ -8,7 +8,7 @@
                 {{ csrf_field() }}
                 <div class="col-lg-6", style="width: auto; margin-left: auto; margin-right: auto">
                     <input type="hidden" name="id" value="{{ $p->id }}"> <br/>
-                    <div class="p-5">
+                    <div class="p-1">
                         <div class="form-group">
                             <label>Nama Siswa</label>
                             <input type="text" name="nama_siswa" class="form-control form-control-user" value="{{ $p->nama_siswa }}" required>

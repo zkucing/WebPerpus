@@ -32,3 +32,9 @@ Route::post('/lihat-peminjaman/update','App\Http\Controllers\PeminjamanControlle
 
 // route delete
 Route::get('/lihat-peminjaman/hapus/{id}','App\Http\Controllers\PeminjamanController@hapus');
+
+//route read
+Route::get('/input-pengembalian/{id}','App\Http\Controllers\PeminjamanController@pengembalian');
+
+// route update
+Route::post('/input-pengembalian/selesai','App\Http\Controllers\PeminjamanController@selesai');

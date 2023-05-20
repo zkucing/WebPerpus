@@ -11,7 +11,6 @@ Halaman : {{ $tb_peminjaman->currentPage() }} <br/>
 Jumlah Data : {{ $tb_peminjaman->total() }} <br/>
     <center>
         <table class="table">
-            
         </br>
             <thead>
                 <tr>
@@ -34,14 +33,24 @@ Jumlah Data : {{ $tb_peminjaman->total() }} <br/>
                     <td>{{ $p->judul_buku }}</td>
                     <td>{{ $p->tanggal_peminjaman }}</td>
                     <td>
-                        <a href="/lihat-peminjaman/edit/{{ $p->id }}">Edit  |</a>
-                        <a href="/lihat-peminjaman/hapus/{{ $p->id }}">Hapus</a> 
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                              Opsi
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="/lihat-peminjaman/edit/{{ $p->id }}">Edit</a></li>
+                              <li><a class="dropdown-item" href="/lihat-peminjaman/hapus/{{ $p->id }}">Hapus</a></li>
+                              <li><a class="dropdown-item" href="/input-pengembalian/{{ $p->id }}">Kembalikan Buku</a></li>
+                            </ul>
+                          </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>    
         </table>
         <br/>
-        {{ $tb_peminjaman->links('pagination::simple-bootstrap-4') }}
+        <ul class="pagination justify-content-center">
+            {{ $tb_peminjaman->links('pagination::simple-bootstrap-4') }}
+        </ul>
     </center>   
 @endsection

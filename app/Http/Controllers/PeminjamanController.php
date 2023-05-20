@@ -75,11 +75,25 @@ class PeminjamanController extends Controller
         return redirect('lihat-peminjaman');
     }
 
-    public function pengembalian()
+    public function pengembalian($id)
     {
-    	// mengambil data dari table tb_peminjaman
-    	$db_peminjaman = DB::table('tb_peminjaman')->paginate(4);
-    	// mengirim data ke view index
-    	return view('lihat-peminjaman',['tb_peminjaman' => $db_peminjaman]);
+        // mengambil data berdasarkan id yang dipilih
+        $db_peminjaman = DB::table('tb_peminjaman')->where('id',$id)->get();
+        // passing data yang didapat ke view edit.blade.php
+        return view('input-pengembalian',['id' => $db_peminjaman]);
+    }
+
+    public function selesai(Request $request)
+    {
+        // update data ke table
+        DB::table('tb_peminjaman')->where('id', $request->id)->update([
+            'nama_siswa' => $request->nama_siswa,
+            'kelas_siswa' => $request->kelas_siswa,
+            'nomor_hp' => $request->nomor_hp,
+            'judul_buku' => $request->judul_buku,
+            'tanggal_peminjaman' => $request->tanggal_peminjaman]);
+    
+            // alihkan halaman ke halaman pegawai 
+            return redirect ('lihat-peminjaman');
     }
 }

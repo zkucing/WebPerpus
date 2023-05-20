@@ -20,7 +20,7 @@
                             <input type="text" name="nomor_hp" class="form-control form-control-user" placeholder="Masukkan nomor hp siswa ..." required>
                         </div>
                         <div class="form-group">
-                            <label>Judul Buku yang Dipinjam</label>
+                            <label >Judul Buku yang Dipinjam</label>
                             <input type="text" name="judul_buku" class="form-control form-control-user" placeholder="Masukkan judul buku yang dipinjam ..." required>
                         </div>
                         <div class="form-group">
