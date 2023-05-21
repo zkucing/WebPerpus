@@ -87,11 +87,13 @@ class PeminjamanController extends Controller
     {
         // update data ke table
         DB::table('tb_peminjaman')->where('id', $request->id)->update([
-            'nama_siswa' => $request->nama_siswa,
-            'kelas_siswa' => $request->kelas_siswa,
-            'nomor_hp' => $request->nomor_hp,
-            'judul_buku' => $request->judul_buku,
-            'tanggal_peminjaman' => $request->tanggal_peminjaman]);
+            // 'nama_siswa' => $request->nama_siswa,
+            // 'kelas_siswa' => $request->kelas_siswa,
+            // 'nomor_hp' => $request->nomor_hp,
+            // 'judul_buku' => $request->judul_buku,
+            // 'tanggal_peminjaman' => $request->tanggal_peminjaman,
+            'tanggal_pengembalian' => $request->tanggal_pengembalian,
+            'denda' => $request->denda]);
     
             // alihkan halaman ke halaman pegawai 
             return redirect ('lihat-peminjaman');

@@ -4,7 +4,7 @@
     <center>
             <h1>Input Pengembalian Buku</h1>
             @foreach($id as $p)
-            <form action="/lihat-peminjaman/update" method="post">
+            <form action="/input-pengembalian/selesai" method="post">
                 {{ csrf_field() }}
                 <div class="col-lg-6", style="width: auto; margin-left: auto; margin-right: auto">
                     <input type="hidden" name="id" value="{{ $p->id }}"> <br/>
@@ -28,6 +28,14 @@
                         <div class="form-group">
                             <label>Tanggal Peminjaman</label>
                             <input type="date" name="tanggal_peminjaman" class="form-control form-control-buku" value="{{ $p->tanggal_peminjaman }}" required disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal Pengembalian</label>
+                            <input type="date" name="tanggal_pengembalian" class="form-control form-control-buku" value="{{ $p->tanggal_pengembalian }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Denda</label>
+                            <input type="text" name="denda" placeholder="Masukkan denda ..." class="form-control form-control-user" value="{{ $p->denda }}" required>
                         </div>
                     </br>
                     <button class="btn btn-danger btn-buku btn-block" type="submit">Kembalikan Buku</button>
