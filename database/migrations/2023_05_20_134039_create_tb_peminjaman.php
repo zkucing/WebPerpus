@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('tanggal_peminjaman');
             $table->date('tanggal_pengembalian')->nullable();
             $table->integer('denda')->nullable();
+            $table->char('status');
             $table->timestamps();
         });
     }

@@ -20,6 +20,8 @@ Jumlah Data : {{ $tb_peminjaman->total() }} <br/>
                     <th>Nomor Hp Siswa yang Meminjam</th>
                     <th>Judul Buku yang Dipinjam</th>
                     <th>Tanggal Peminjaman</th>
+                    <th>Tanggal Pengembalian</th>
+                    <th>Status</th>
                     <th>Opsi</th>
                 </tr>
             </thead>
@@ -32,6 +34,12 @@ Jumlah Data : {{ $tb_peminjaman->total() }} <br/>
                     <td>{{ $p->nomor_hp }}</td>
                     <td>{{ $p->judul_buku }}</td>
                     <td>{{ $p->tanggal_peminjaman }}</td>
+                    <td>{{ $p->tanggal_pengembalian }}</td>
+                    @if($p -> status == 'BELUM KEMBALI')
+                        <td style="color: crimson">{{ $p->status }}</td>
+                    @else
+                        <td style="color:blue">{{ $p->status }}</td>
+                    @endif
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
  
 class PeminjamanController extends Controller
 {
     public function lihat()
     {
     	// mengambil data dari table tb_peminjaman
-    	$db_peminjaman = DB::table('tb_peminjaman')->paginate(4);
-    	// mengirim data ke view index
+    	$db_peminjaman = DB::table('tb_peminjaman')->latest()->paginate(4);
     	return view('lihat-peminjaman',['tb_peminjaman' => $db_peminjaman]);
     }
 
@@ -28,10 +29,13 @@ class PeminjamanController extends Controller
         'kelas_siswa' => $request->kelas_siswa,
         'nomor_hp' => $request->nomor_hp,
         'judul_buku' => $request->judul_buku,
-        'tanggal_peminjaman' => $request->tanggal_peminjaman]);
+        'tanggal_peminjaman' => $request->tanggal_peminjaman,
+        'status' => $request->status??'BELUM KEMBALI',
+        'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+    ]);
 
         // alihkan halaman ke halaman pegawai 
-        return redirect ('lihat-peminjaman');
+        return redirect ('lihat-peminjaman');   
 
 		// $db_peminjaman = new tb_peminjaman();
         // $db_peminjaman->nama_siswa = $request->post("nama_siswa");
@@ -59,7 +63,9 @@ class PeminjamanController extends Controller
             'kelas_siswa' => $request->kelas_siswa,
             'nomor_hp' => $request->nomor_hp,
             'judul_buku' => $request->judul_buku,
-            'tanggal_peminjaman' => $request->tanggal_peminjaman]);
+            'tanggal_peminjaman' => $request->tanggal_peminjaman,
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
     
             // alihkan halaman ke halaman pegawai 
             return redirect ('lihat-peminjaman');
@@ -93,7 +99,11 @@ class PeminjamanController extends Controller
             // 'judul_buku' => $request->judul_buku,
             // 'tanggal_peminjaman' => $request->tanggal_peminjaman,
             'tanggal_pengembalian' => $request->tanggal_pengembalian,
-            'denda' => $request->denda]);
+            'denda' => $request->denda,
+            'status' =>'SUDAH KEMBALI',
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
     
             // alihkan halaman ke halaman pegawai 
             return redirect ('lihat-peminjaman');
