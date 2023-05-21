@@ -37,6 +37,7 @@ class PeminjamanSeeder extends Seeder
                 'tanggal_peminjaman' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'status' =>('BELUM KEMBALI'),
                 'created_at' => $timestamp,
+                'updated_at' => $timestamp
                 ]);
      
                 }
